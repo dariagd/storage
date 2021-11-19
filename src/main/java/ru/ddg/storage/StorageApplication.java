@@ -6,18 +6,18 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.ddg.storage.repository.GoodRepository;
-import ru.ddg.storage.repository.StorehouseRepository;
+import ru.ddg.storage.repository.StoreRepository;
 
 @SpringBootApplication
 @RestController
 @RequestMapping(value = "", produces = "application/json")
 public class StorageApplication {
-    private StorehouseRepository storehouseRepository;
+    private StoreRepository storeRepository;
     private GoodRepository goodRepository;
 
     @Autowired
-    public StorageApplication(StorehouseRepository storehouseRepository, GoodRepository goodRepository) {
-        this.storehouseRepository = storehouseRepository;
+    public StorageApplication(StoreRepository storeRepository, GoodRepository goodRepository) {
+        this.storeRepository = storeRepository;
         this.goodRepository = goodRepository;
     }
 

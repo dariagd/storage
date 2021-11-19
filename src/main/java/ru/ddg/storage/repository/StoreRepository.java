@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ru.ddg.storage.model.entity.Store;
 
 @Repository
-public interface StorehouseRepository extends JpaRepository<Store, Long> {
+public interface StoreRepository extends JpaRepository<Store, Long> {
 }
