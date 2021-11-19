@@ -1,4 +1,4 @@
-package ru.ddg.storage.service;
+package ru.ddg.storage.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

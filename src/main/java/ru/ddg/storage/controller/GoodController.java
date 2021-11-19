@@ -6,9 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.ddg.storage.model.dto.GoodDto;
 import ru.ddg.storage.model.entity.Good;
-import ru.ddg.storage.service.GoodService;
-
-import java.util.List;
+import ru.ddg.storage.service.impl.GoodService;
 
 @RestController
 @RequestMapping("/goods")

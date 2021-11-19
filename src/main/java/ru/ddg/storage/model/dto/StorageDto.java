@@ -1,10 +1,9 @@
 package ru.ddg.storage.model.dto;
 
-import ru.ddg.storage.model.entity.Storehouse;
+import ru.ddg.storage.model.entity.Store;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 public class StorageDto {
     private Long id;
@@ -12,10 +11,10 @@ public class StorageDto {
     private String address;
     private List<GoodDto> goodsDto = new ArrayList<>();
 
-    public static StorageDto from(Storehouse storehouse){
+    public static StorageDto from(Store store){
         StorageDto storageDto = new StorageDto();
-        storageDto.setId(storehouse.getId());
-        storageDto.setName(storehouse.getName());
+        storageDto.setId(store.getId());
+        storageDto.setName(store.getName());
 //        storageDto.setGoodsDto(storehouse.getGoods()
 //                                    .stream()
 //                                    .map(goods -> GoodDto.from(goods))

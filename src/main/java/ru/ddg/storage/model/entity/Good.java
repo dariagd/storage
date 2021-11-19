@@ -6,50 +6,26 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="goods")
+@Table(name="good")
 public class Good {
-
     @Embeddable
     public static class Pk implements Serializable{
-        @Column(name = "storehouse_id", nullable=false, updatable=false)
-        public Long storehouseId;
+        @ManyToOne
+        @JoinColumn(name="store_id")
+        public Store store;
 
         @Column(name = "good_id")
         public Long goodId;
 
-        public Pk(Long storehouseId, Long goodId) {
-            this.storehouseId = storehouseId;
-            this.goodId = goodId;
-        }
-
         public Pk() {
         }
     }
-
     @EmbeddedId
     private Pk id;
-
-    @ManyToOne
-    @JoinColumn(name = "storehouse_id", insertable = false, updatable = false)
-    @org.hibernate.annotations.ForeignKey(name = "FK_GOOD_STOREHOUSEID")
-    public Storehouse storehouse;
-
-
+    @Column(name = "amount")
     private Long amount;
+    @Column(name = "note")
     private String note;
-
-    public Good(Pk id, Storehouse storehouse, Long amount, String note) {
-        this.id = id;
-        this.storehouse = storehouse;
-        this.amount = amount;
-        this.note = note;
-//        this.product = product;
-    }
-
-    //    @ManyToOne
-//    @JoinColumn(name="storehouse_id")
-//    private Storehouse storehouse;
-
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
@@ -79,15 +55,6 @@ public class Good {
     public void setNote(String note) {
         this.note = note;
     }
-
-    public Storehouse getStorehouse() {
-        return storehouse;
-    }
-
-    public void setStorehouse(Storehouse storehouse) {
-        this.storehouse = storehouse;
-    }
-
 
     public Pk getId() {
         return id;

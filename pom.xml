@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ru.ddg</groupId>
-    <artifactId>storehouse</artifactId>
+    <artifactId>store</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>storehouse</name>
-    <description>RESTful service for storehouse</description>
+    <name>store</name>
+    <description>RESTful service for store</description>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -25,7 +25,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>

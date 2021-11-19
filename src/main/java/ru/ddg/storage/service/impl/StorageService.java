@@ -1,9 +1,10 @@
-package ru.ddg.storage.service;
+package ru.ddg.storage.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.ddg.storage.model.entity.Storehouse;
+import ru.ddg.storage.model.entity.Store;
 import ru.ddg.storage.repository.StorehouseRepository;
+import ru.ddg.storage.service.impl.GoodService;
 
 import java.util.List;
 
@@ -20,15 +21,15 @@ public class StorageService {
         this.goodService = goodService;
     }
 
-    public Storehouse addStorage(Storehouse storehouse){
-        return storehouseRepository.save(storehouse);
+    public Store addStorage(Store store){
+        return storehouseRepository.save(store);
     }
 
-    public Storehouse getStorage(Long id){
+    public Store getStorage(Long id){
         return storehouseRepository.findById(id).orElseThrow(() -> new RuntimeException());
     }
 
-    public List<Storehouse> getAllStorage(){
+    public List<Store> getAllStorage(){
         return storehouseRepository.findAll();
     }
 

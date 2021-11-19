@@ -1,35 +1,48 @@
 package ru.ddg.storage.model.entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name="product")
 public class Product {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "product_id")
     private Long id;
+    @Column(name = "product_name")
     private String name;
-
-
     @OneToMany(
             mappedBy = "product"
     )
     private List<Good> goods = new ArrayList<>();
-
-    @ManyToMany(
-            mappedBy = "parents"
+    @OneToMany(
+            mappedBy = "id.parent"
     )
-    private List<Product> children = new ArrayList<>();
-
-    @ManyToMany
-    @JoinTable(
-            name = "composition",
-            joinColumns = @JoinColumn(name = "parent_id"),
-            inverseJoinColumns = @JoinColumn(name = "child_id")
+    private List<ProductComposition> parents;
+    @OneToMany(
+            mappedBy = "id.child"
     )
-    private List<Product> parents = new ArrayList<>();
+    private List<ProductComposition> children;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Good> getGoods() {
+        return goods;
+    }
+
+    public void setGoods(List<Good> goods) {
+        this.goods = goods;
+    }
 }
