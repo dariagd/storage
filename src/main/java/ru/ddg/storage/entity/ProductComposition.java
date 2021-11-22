@@ -1,4 +1,4 @@
-package ru.ddg.storage.model.entity;
+package ru.ddg.storage.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductComposition {
+public class ProductComposition extends AbstractEntity {
     @Embeddable
     static class Pk implements Serializable {
         @ManyToOne

@@ -1,4 +1,4 @@
-package ru.ddg.storage.model.entity;
+package ru.ddg.storage.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Store {
+public class Store extends AbstractEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "store_id")
@@ -24,10 +24,14 @@ public class Store {
     private String name;
     @Column(name = "address")
     private String address;
+//    @OneToMany(
+//            mappedBy = "id.store"
+//    )
+//    private List<Good> goods = new ArrayList<>();
     @OneToMany(
-            mappedBy = "id.store"
+            mappedBy = "store"
     )
-    private List<Good> goods = new ArrayList<>();
+    private List<Good> goods;
     @OneToMany(
             mappedBy = "id.store"
     )

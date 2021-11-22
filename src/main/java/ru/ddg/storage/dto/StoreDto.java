@@ -1,7 +1,8 @@
-package ru.ddg.storage.model.dto;
+package ru.ddg.storage.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.util.List;
 import java.util.ArrayList;
@@ -9,9 +10,8 @@ import java.util.ArrayList;
 @Getter
 @Setter
 @AllArgsConstructor
-public class StoreDto {
-    private Long id;
+@NoArgsConstructor
+public class StoreDto extends AbstractDto{
     private String name;
     private String address;
-    private List<GoodDto> goodsDto = new ArrayList<>();
 }

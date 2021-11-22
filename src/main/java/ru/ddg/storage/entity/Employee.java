@@ -1,4 +1,4 @@
-package ru.ddg.storage.model.entity;
+package ru.ddg.storage.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,9 +15,9 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Employee {
+public class Employee extends AbstractEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "employee_id")
     private Long id;
     @Column(name = "first_name")

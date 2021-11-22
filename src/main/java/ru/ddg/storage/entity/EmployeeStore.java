@@ -1,4 +1,4 @@
-package ru.ddg.storage.model.entity;
+package ru.ddg.storage.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,7 +15,7 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class EmployeeStore {
+public class EmployeeStore extends AbstractEntity {
     @Embeddable
     public static class Pk implements Serializable{
         @ManyToOne

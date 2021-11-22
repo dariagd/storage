@@ -1,0 +1,8 @@
+GET http://localhost:9000/store_list
+Accept: application/json
+
+###
+
+
+###
+

@@ -1,9 +1,8 @@
 package ru.ddg.storage.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.ddg.storage.model.entity.Employee;
+import ru.ddg.storage.entity.Employee;
 
 @Repository
-public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+public interface EmployeeRepository extends AbstractRepository<Employee, Long> {
 }
