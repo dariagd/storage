@@ -8,7 +8,7 @@ import ru.ddg.storage.repository.AbstractRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public abstract class AbstractCrudService<E extends AbstractEntity, T extends AbstractDto, ID> implements CrudService<T, ID>{
+public abstract class AbstractCrudService<E, T, ID> implements CrudService<T, ID>{
 
     private final AbstractRepository<E, ID> abstractRepository;
     private final AbstractMapper<E, T> abstractMapper;
@@ -21,7 +21,7 @@ public abstract class AbstractCrudService<E extends AbstractEntity, T extends Ab
 
     @Override
     public T getById(ID id) {
-        return abstractMapper.toDto(abstractRepository.findById(id).orElseThrow(() -> new RuntimeException()));
+        return abstractMapper.toDto(abstractRepository.findById(id).orElseThrow(() -> new RuntimeException("Not Found")));
     }
 
     @Override

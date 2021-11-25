@@ -5,7 +5,7 @@ import ru.ddg.storage.dto.AbstractDto;
 
 import java.util.List;
 
-public interface Controller<T extends AbstractDto, ID> {
+public interface Controller<T, ID> {
 
     ResponseEntity<T> getById(ID id);
 

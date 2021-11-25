@@ -8,7 +8,7 @@ import ru.ddg.storage.service.CrudService;
 
 import java.util.List;
 
-public abstract class AbstractController<T extends AbstractDto, ID> implements Controller<T, ID>{
+public abstract class AbstractController<T, ID> implements Controller<T, ID>{
 
     private final CrudService<T, ID> crudService;
 

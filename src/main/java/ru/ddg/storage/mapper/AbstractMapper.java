@@ -7,7 +7,7 @@ import ru.ddg.storage.entity.AbstractEntity;
 
 import java.util.Objects;
 
-public abstract class AbstractMapper<E extends AbstractEntity, T extends AbstractDto> implements Mapper<E, T>{
+public abstract class AbstractMapper<E, T> implements Mapper<E, T>{
 
     private final Class<E> entityClass;
     private final Class<T> dtoClass;

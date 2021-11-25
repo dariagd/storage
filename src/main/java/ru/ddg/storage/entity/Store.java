@@ -33,7 +33,7 @@ public class Store extends AbstractEntity {
     )
     private List<Good> goods;
     @OneToMany(
-            mappedBy = "id.store"
+            mappedBy = "id.storeId"
     )
     private List<EmployeeStore> employeeStores = new ArrayList<>();
 }

@@ -17,14 +17,16 @@ import java.util.Date;
 @AllArgsConstructor
 public class EmployeeStore extends AbstractEntity {
     @Embeddable
+    @Getter
+    @Setter
     public static class Pk implements Serializable{
         @ManyToOne
         @JoinColumn(name = "employee_id")
-        private Employee employee;
+        private Employee employeeId;
 
         @ManyToOne
         @JoinColumn(name = "store_id")
-        private Store store;
+        private Store storeId;
     }
     @EmbeddedId
     private Pk id;

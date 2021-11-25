@@ -5,5 +5,5 @@ import org.springframework.data.repository.NoRepositoryBean;
 import ru.ddg.storage.entity.AbstractEntity;
 
 @NoRepositoryBean
-public interface AbstractRepository<E extends AbstractEntity, ID> extends JpaRepository<E, ID> {
+public interface AbstractRepository<E, ID> extends JpaRepository<E, ID> {
 }
