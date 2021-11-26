@@ -3,12 +3,12 @@ package ru.ddg.storage.service;
 import java.util.List;
 
 public interface CrudService<T, ID> {
-    T getById(ID id);
+    T findById(ID id);
 
-    List<T> getAll();
+    List<T> findAll();
 
 //    <S extends T> S save(S entity);
-    T save(T dto);
+    T insert(T dto);
 
     T update(ID id, T dto);
 

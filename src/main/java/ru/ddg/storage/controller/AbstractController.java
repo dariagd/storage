@@ -18,20 +18,20 @@ public abstract class AbstractController<T, ID> implements Controller<T, ID>{
 
     @Override
     @GetMapping("{id}")
-    public ResponseEntity<T> getById(@PathVariable ID id) {
-        return ResponseEntity.ok(crudService.getById(id));
+    public ResponseEntity<T> findById(@PathVariable ID id) {
+        return ResponseEntity.ok(crudService.findById(id));
     }
 
     @Override
     @GetMapping
-    public ResponseEntity<List<T>> getAll() {
-        return ResponseEntity.ok(crudService.getAll());
+    public ResponseEntity<List<T>> findAll() {
+        return ResponseEntity.ok(crudService.findAll());
     }
 
     @Override
     @PostMapping
-    public ResponseEntity<T> add(@RequestBody T dto) {
-        return ResponseEntity.ok(crudService.save(dto));
+    public ResponseEntity<T> insert(@RequestBody T dto) {
+        return ResponseEntity.ok(crudService.insert(dto));
     }
 
     @Override

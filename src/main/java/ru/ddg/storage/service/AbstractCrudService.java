@@ -20,12 +20,12 @@ public abstract class AbstractCrudService<E, T, ID> implements CrudService<T, ID
     }
 
     @Override
-    public T getById(ID id) {
+    public T findById(ID id) {
         return abstractMapper.toDto(abstractRepository.findById(id).orElseThrow(() -> new RuntimeException("Not Found")));
     }
 
     @Override
-    public List<T> getAll() {
+    public List<T> findAll() {
         return abstractRepository.findAll()
                 .stream()
                 .map(entity -> abstractMapper.toDto(entity))
@@ -36,7 +36,7 @@ public abstract class AbstractCrudService<E, T, ID> implements CrudService<T, ID
     // в каждом сервисе-реализации переопределить update()
 
     @Override
-    public T save(T dto) {
+    public T insert(T dto) {
         return abstractMapper.toDto(abstractRepository.save(abstractMapper.toEntity(dto)));
     }
 

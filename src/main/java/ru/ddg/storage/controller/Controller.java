@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface Controller<T, ID> {
 
-    ResponseEntity<T> getById(ID id);
+    ResponseEntity<T> findById(ID id);
 
-    ResponseEntity<List<T>> getAll();
+    ResponseEntity<List<T>> findAll();
 
-    ResponseEntity<T> add(T dto);
+    ResponseEntity<T> insert(T dto);
 
     ResponseEntity<T> update(ID id, T dto);
 
