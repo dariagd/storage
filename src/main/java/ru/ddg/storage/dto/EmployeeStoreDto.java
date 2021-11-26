@@ -1,23 +1,28 @@
 package ru.ddg.storage.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.NotEmpty;
+import java.util.Date;
 
 @Getter
 @Setter
 @Validated
 @NoArgsConstructor
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class EmployeeStoreDto{
 
     @NotEmpty
+    @NonNull
+    @JsonIgnore
     private Long employeeId;
 
     @NotEmpty
+    @NonNull
+    @JsonIgnore
     private Long storeId;
+
+//    private Date expirationDate;
 }

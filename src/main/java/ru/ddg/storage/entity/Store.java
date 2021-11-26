@@ -17,7 +17,7 @@ import java.util.ArrayList;
 @AllArgsConstructor
 public class Store extends AbstractEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "store_id")
     private Long id;
     @Column(name = "store_name")

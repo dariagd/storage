@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Employee extends AbstractEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "employee_id")
     private Long id;
     @Column(name = "first_name")
