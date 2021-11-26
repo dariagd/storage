@@ -10,4 +10,8 @@ import java.util.List;
 public interface EmployeeStoreRepository extends AbstractRepository<EmployeeStore, EmployeeStore.Pk>{
     @Query("SELECT es.id.employeeId FROM EmployeeStore es WHERE es.id.storeId = ?1")
     List<Long> findAllByIdStoreId(Long storeId);
+
+    @Query("SELECT es.id.storeId FROM EmployeeStore es WHERE es.id.employeeId = ?1")
+    List<Long> findAllByIdEmployeeId(Long employeeId);
+
 }

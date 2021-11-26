@@ -5,12 +5,8 @@ import ru.ddg.storage.dto.EmployeeDto;
 import ru.ddg.storage.dto.EmployeeStoreDto;
 import ru.ddg.storage.dto.StoreDto;
 import ru.ddg.storage.entity.EmployeeStore;
-import ru.ddg.storage.mapper.impl.EmployeeMapper;
 import ru.ddg.storage.mapper.impl.EmployeeStoreMapper;
-import ru.ddg.storage.mapper.impl.StoreMapper;
-import ru.ddg.storage.repository.EmployeeRepository;
 import ru.ddg.storage.repository.EmployeeStoreRepository;
-import ru.ddg.storage.repository.StoreRepository;
 import ru.ddg.storage.service.AbstractCrudService;
 
 import java.util.List;
@@ -22,20 +18,30 @@ public class EmployeeStoreService extends AbstractCrudService<EmployeeStore, Emp
     private final EmployeeStoreRepository employeeStoreRepository;
     private final EmployeeStoreMapper employeeStoreMapper;
     private final EmployeeServiceImpl employeeService;
+    private final StoreServiceImpl storeService;
 
     public EmployeeStoreService(EmployeeStoreRepository employeeStoreRepository,
                                 EmployeeStoreMapper employeeStoreMapper,
-                                EmployeeServiceImpl employeeService) {
+                                EmployeeServiceImpl employeeService,
+                                StoreServiceImpl storeService) {
         super(employeeStoreRepository, employeeStoreMapper);
         this.employeeStoreRepository = employeeStoreRepository;
         this.employeeStoreMapper = employeeStoreMapper;
         this.employeeService = employeeService;
+        this.storeService = storeService;
     }
 
     public List<EmployeeDto> findAllEmployees(Long storeId){
         return employeeStoreRepository.findAllByIdStoreId(storeId)
                 .stream()
-                .map(employeeStore -> employeeService.findById(employeeStore))
+                .map(employeeId -> employeeService.findById(employeeId))
+                .collect(Collectors.toList());
+    }
+
+    public List<StoreDto> findAllStoreList(Long employeeId){
+        return employeeStoreRepository.findAllByIdEmployeeId(employeeId)
+                .stream()
+                .map(storeId -> storeService.findById(storeId))
                 .collect(Collectors.toList());
     }
 
