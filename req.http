@@ -1,4 +1,4 @@
-GET http://localhost:9000/store_list
+GET http://localhost:9000/employees/99
 Accept: application/json
 
 ###

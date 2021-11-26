@@ -20,45 +20,28 @@ import java.util.stream.Collectors;
 public class EmployeeStoreService extends AbstractCrudService<EmployeeStore, EmployeeStoreDto, EmployeeStore.Pk> {
 
     private final EmployeeStoreRepository employeeStoreRepository;
-    private final EmployeeRepository employeeRepository;
-    private final EmployeeMapper employeeMapper;
-    private final StoreRepository storeRepository;
     private final EmployeeStoreMapper employeeStoreMapper;
-    private final StoreMapper storeMapper;
+    private final EmployeeServiceImpl employeeService;
 
     public EmployeeStoreService(EmployeeStoreRepository employeeStoreRepository,
-                                EmployeeRepository employeeRepository,
-                                EmployeeMapper employeeMapper,
-                                StoreRepository storeRepository,
                                 EmployeeStoreMapper employeeStoreMapper,
-                                StoreMapper storeMapper) {
+                                EmployeeServiceImpl employeeService) {
         super(employeeStoreRepository, employeeStoreMapper);
         this.employeeStoreRepository = employeeStoreRepository;
-        this.employeeRepository = employeeRepository;
-        this.employeeMapper = employeeMapper;
-        this.storeRepository = storeRepository;
         this.employeeStoreMapper = employeeStoreMapper;
-        this.storeMapper = storeMapper;
-    }
-
-    public List<StoreDto> findAllStoreList(Long employeeId){
-        return employeeStoreRepository.findAllByEmployeeId(employeeId)
-                .stream()
-                .map(employeeStore -> storeMapper.toDto(storeRepository.findById(employeeStoreMapper.toDto(employeeStore).getStoreId())
-                        .orElseThrow(() -> new RuntimeException("Not Found"))))
-                .collect(Collectors.toList());
+        this.employeeService = employeeService;
     }
 
     public List<EmployeeDto> findAllEmployees(Long storeId){
-        return employeeStoreRepository.findAllByStoreId(storeId)
+        return employeeStoreRepository.findAllByIdStoreId(storeId)
                 .stream()
-                .map(employeeStore -> employeeMapper.toDto(employeeRepository.findById(employeeStoreMapper.toDto(employeeStore).getEmployeeId())
-                        .orElseThrow(() -> new RuntimeException("Not Found"))))
+                .map(employeeStore -> employeeService.findById(employeeStore))
                 .collect(Collectors.toList());
     }
 
     public Boolean connect(Long employeeId, Long storeId){
         EmployeeStoreDto employeeStoreDto = new EmployeeStoreDto(employeeId, storeId);
+        employeeStoreRepository.save(employeeStoreMapper.toEntity(employeeStoreDto));
         return true;
     }
 

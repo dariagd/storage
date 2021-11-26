@@ -20,16 +20,19 @@ public class EmployeeStore extends AbstractEntity {
     @Getter
     @Setter
     public static class Pk implements Serializable{
-        @ManyToOne
-        @JoinColumn(name = "employee_id")
-        private Employee employeeId;
-
-        @ManyToOne
-        @JoinColumn(name = "store_id")
-        private Store storeId;
+        private Long employeeId;
+        private Long storeId;
     }
     @EmbeddedId
     private Pk id;
-    @Column(name = "expiration_date")
-    private Date expirationDate;
+
+    @MapsId("employeeId")
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
+
+    @MapsId("storeId")
+    @ManyToOne
+    @JoinColumn(name = "store_id")
+    private Store store;
 }

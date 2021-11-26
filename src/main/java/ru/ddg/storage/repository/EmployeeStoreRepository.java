@@ -8,9 +8,6 @@ import java.util.List;
 
 @Repository
 public interface EmployeeStoreRepository extends AbstractRepository<EmployeeStore, EmployeeStore.Pk>{
-    @Query(value = "select employee_id from employee_store where store_id LIKE :storeId", nativeQuery = true)
-    List<EmployeeStore> findAllByStoreId(Long storeId);
-
-    @Query(value = "select store_id from employee_store where employee_id LIKE :employeeId", nativeQuery = true)
-    List<EmployeeStore> findAllByEmployeeId(Long employeeId);
+    @Query("SELECT es.id.employeeId FROM EmployeeStore es WHERE es.id.storeId = ?1")
+    List<Long> findAllByIdStoreId(Long storeId);
 }
