@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.validation.annotation.Validated;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
@@ -11,18 +12,15 @@ import java.util.Date;
 @Setter
 @Validated
 @NoArgsConstructor
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class EmployeeStoreDto{
 
     @NotEmpty
-    @NonNull
-    @JsonIgnore
     private Long employeeId;
 
     @NotEmpty
-    @NonNull
-    @JsonIgnore
     private Long storeId;
 
-//    private Date expirationDate;
+    @NotBlank
+    private Date expirationDate;
 }

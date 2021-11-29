@@ -35,7 +35,6 @@ public class Good extends AbstractEntity {
 //    private Pk id;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "good_id")
     private Long id;
     @Column(name = "amount")
     private Long amount;

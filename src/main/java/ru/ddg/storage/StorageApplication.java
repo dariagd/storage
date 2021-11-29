@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ru.ddg.storage.mapper.impl.EmployeeStoreMapper;
 import ru.ddg.storage.repository.GoodRepository;
 import ru.ddg.storage.repository.StoreRepository;
 
@@ -21,6 +22,7 @@ public class StorageApplication {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper;
     }
+
 //    @RequestMapping("create-good")
 //    public Good createGood(){
 //        return goodRepository.save(new Good());

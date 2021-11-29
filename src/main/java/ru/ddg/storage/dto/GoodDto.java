@@ -19,6 +19,7 @@ public class GoodDto extends AbstractDto{
     @NotBlank
     private Long amount;
 
+    @NotBlank
     private String note;
 
     @NotEmpty

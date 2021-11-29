@@ -7,7 +7,7 @@ import ru.ddg.storage.mapper.AbstractMapper;
 
 @Component
 public class ProductCompositionMapper extends AbstractMapper<ProductComposition, ProductCompositionDto> {
-    public ProductCompositionMapper() {
+    ProductCompositionMapper() {
         super(ProductComposition.class, ProductCompositionDto.class);
     }
 }

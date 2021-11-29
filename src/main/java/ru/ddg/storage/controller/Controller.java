@@ -5,13 +5,13 @@ import ru.ddg.storage.dto.AbstractDto;
 
 import java.util.List;
 
-public interface Controller<T, ID> {
+public interface Controller<T extends AbstractDto, ID> {
 
-    ResponseEntity<T> findById(ID id);
+    ResponseEntity<T> getById(ID id);
 
-    ResponseEntity<List<T>> findAll();
+    ResponseEntity<List<T>> getAll();
 
-    ResponseEntity<T> insert(T dto);
+    ResponseEntity<T> add(T dto);
 
     ResponseEntity<T> update(ID id, T dto);
 

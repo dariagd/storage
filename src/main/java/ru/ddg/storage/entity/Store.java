@@ -18,7 +18,6 @@ import java.util.ArrayList;
 public class Store extends AbstractEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "store_id")
     private Long id;
     @Column(name = "store_name")
     private String name;
