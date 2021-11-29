@@ -3,12 +3,11 @@ package ru.ddg.storage.controller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.ddg.storage.dto.AbstractDto;
-import ru.ddg.storage.service.AbstractCrudService;
 import ru.ddg.storage.service.CrudService;
 
 import java.util.List;
 
-public abstract class AbstractController<T, ID> implements Controller<T, ID>{
+public abstract class AbstractController<T extends AbstractDto, ID> implements Controller<T, ID>{
 
     private final CrudService<T, ID> crudService;
 
@@ -18,19 +17,19 @@ public abstract class AbstractController<T, ID> implements Controller<T, ID>{
 
     @Override
     @GetMapping("{id}")
-    public ResponseEntity<T> findById(@PathVariable ID id) {
-        return ResponseEntity.ok(crudService.findById(id));
+    public ResponseEntity<T> getById(@PathVariable ID id) {
+        return ResponseEntity.ok(crudService.getById(id));
     }
 
     @Override
     @GetMapping
-    public ResponseEntity<List<T>> findAll() {
-        return ResponseEntity.ok(crudService.findAll());
+    public ResponseEntity<List<T>> getAll() {
+        return ResponseEntity.ok(crudService.getAll());
     }
 
     @Override
     @PostMapping
-    public ResponseEntity<T> insert(@RequestBody T dto) {
+    public ResponseEntity<T> add(@RequestBody T dto) {
         return ResponseEntity.ok(crudService.insert(dto));
     }
 

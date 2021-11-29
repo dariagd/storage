@@ -8,8 +8,8 @@ import ru.ddg.storage.service.impl.ProductCompositionServiceImpl;
 
 @RestController
 @RequestMapping("/product_composition")
-public class ProductCompositionImpl extends AbstractController<ProductCompositionDto, Long> {
-    public ProductCompositionImpl(ProductCompositionServiceImpl productCompositionService) {
+public class ProductCompositionControllerImpl extends AbstractController<ProductCompositionDto, Long> {
+    public ProductCompositionControllerImpl(ProductCompositionServiceImpl productCompositionService) {
         super(productCompositionService);
     }
 }

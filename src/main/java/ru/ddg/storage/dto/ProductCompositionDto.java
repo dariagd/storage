@@ -21,10 +21,10 @@ public class ProductCompositionDto extends AbstractDto{
     private Long amount;
 
     @NotEmpty
-    @JsonProperty("parent_id")
+//    @JsonProperty("parent_id")
     private Long parentId;
 
     @NotEmpty
-    @JsonProperty("child_id")
+//    @JsonProperty("child_id")
     private Long childId;
 }

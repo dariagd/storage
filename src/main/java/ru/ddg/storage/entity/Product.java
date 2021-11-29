@@ -18,7 +18,6 @@ import java.util.List;
 public class Product extends AbstractEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "product_id")
     private Long id;
     @Column(name = "product_name")
     private String name;

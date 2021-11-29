@@ -9,7 +9,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "product_composition")
+@Table(name = "product__composition",
+        uniqueConstraints = { @UniqueConstraint(columnNames = { "parent_id", "child_id"})})
 @Getter
 @Setter
 @NoArgsConstructor
@@ -27,7 +28,6 @@ public class ProductComposition extends AbstractEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "composition_id")
     private Long id;
 
     @Column(name = "amount")
