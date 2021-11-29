@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class EmployeeStoreService extends AbstractCrudService<EmployeeStore, EmployeeStoreDto, EmployeeStore.Pk> {
+public class EmployeeStoreService{
 
     private final EmployeeStoreRepository employeeStoreRepository;
     private final EmployeeStoreMapper employeeStoreMapper;
@@ -24,7 +24,6 @@ public class EmployeeStoreService extends AbstractCrudService<EmployeeStore, Emp
                                 EmployeeStoreMapper employeeStoreMapper,
                                 EmployeeServiceImpl employeeService,
                                 StoreServiceImpl storeService) {
-        super(employeeStoreRepository, employeeStoreMapper);
         this.employeeStoreRepository = employeeStoreRepository;
         this.employeeStoreMapper = employeeStoreMapper;
         this.employeeService = employeeService;
@@ -49,10 +48,5 @@ public class EmployeeStoreService extends AbstractCrudService<EmployeeStore, Emp
         EmployeeStoreDto employeeStoreDto = new EmployeeStoreDto(employeeId, storeId);
         employeeStoreRepository.save(employeeStoreMapper.toEntity(employeeStoreDto));
         return true;
-    }
-
-    @Override
-    public EmployeeStoreDto update(EmployeeStore.Pk pk, EmployeeStoreDto dto) {
-        return null;
     }
 }

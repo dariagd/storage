@@ -29,7 +29,7 @@ public class Employee extends AbstractEntity {
     @Column(name = "department")
     private String department;
     @OneToMany(
-            mappedBy = "id.employeeId"
+            mappedBy = "employee"
     )
     private List<EmployeeStore> employeeStoreList = new ArrayList<EmployeeStore>();
 

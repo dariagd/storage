@@ -15,18 +15,31 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductComposition extends AbstractEntity {
-    @Embeddable
-    static class Pk implements Serializable {
-        @ManyToOne
-        @JoinColumn(name = "parent_id")
-        private Product parent;
+//    @Embeddable
+//    @Getter
+//    @Setter
+//    public static class Pk implements Serializable {
+//        private Long parentId;
+//        private Long childId;
+//    }
+//    @EmbeddedId
+//    private Pk id;
 
-        @ManyToOne
-        @JoinColumn(name = "child_id")
-        private Product child;
-    }
-    @EmbeddedId
-    private Pk id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "composition_id")
+    private Long id;
+
     @Column(name = "amount")
     private Long amount;
+
+    @ManyToOne
+//    @MapsId("parentId")
+    @JoinColumn(name = "parent_id")
+    private Product parentId;
+
+    @ManyToOne
+//    @MapsId("childId")
+    @JoinColumn(name = "child_id")
+    private Product childId;
 }

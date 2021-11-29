@@ -7,7 +7,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 @Entity
 @Table(name = "employee_store")
@@ -26,13 +25,13 @@ public class EmployeeStore extends AbstractEntity {
     @EmbeddedId
     private Pk id;
 
-    @MapsId("employeeId")
     @ManyToOne
+    @MapsId("employeeId")
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
-    @MapsId("storeId")
     @ManyToOne
+    @MapsId("storeId")
     @JoinColumn(name = "store_id")
     private Store store;
 }

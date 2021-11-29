@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Product extends AbstractEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")
     private Long id;
     @Column(name = "product_name")
@@ -27,11 +27,11 @@ public class Product extends AbstractEntity {
     )
     private List<Good> goods = new ArrayList<>();
     @OneToMany(
-            mappedBy = "id.parent"
+            mappedBy = "parentId"
     )
     private List<ProductComposition> parents;
     @OneToMany(
-            mappedBy = "id.child"
+            mappedBy = "childId"
     )
     private List<ProductComposition> children;
 }
