@@ -1,4 +1,4 @@
-package ru.ddg.storage.controller;
+package ru.ddg.storage.controller.rest;
 
 import org.springframework.http.ResponseEntity;
 import ru.ddg.storage.dto.AbstractDto;
