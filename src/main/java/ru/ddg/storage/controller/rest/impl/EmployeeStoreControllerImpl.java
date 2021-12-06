@@ -1,4 +1,4 @@
-package ru.ddg.storage.controller;
+package ru.ddg.storage.controller.rest.impl;
 
 import org.springframework.web.bind.annotation.*;
 import ru.ddg.storage.dto.EmployeeStoreDto;
@@ -7,11 +7,11 @@ import ru.ddg.storage.service.EmployeeStoreService;
 import java.util.List;
 
 @RestController
-public class EmployeeStoreController {
+public class EmployeeStoreControllerImpl {
 
     private final EmployeeStoreService employeeStoreService;
 
-    EmployeeStoreController(EmployeeStoreService employeeStoreService) {
+    EmployeeStoreControllerImpl(EmployeeStoreService employeeStoreService) {
         this.employeeStoreService = employeeStoreService;
     }
 
@@ -20,7 +20,7 @@ public class EmployeeStoreController {
         return employeeStoreService.findAll();
     }
 
-    @PostMapping
+    @PostMapping(value = {"/employee_store", "/store_employee"})
     public EmployeeStoreDto insert(@RequestBody EmployeeStoreDto employeeStoreDto){
         return employeeStoreService.insert(employeeStoreDto);
     }
