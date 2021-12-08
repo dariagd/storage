@@ -22,14 +22,14 @@ public class GoodController {
     }
 
     @GetMapping("/showNewGoodForm")
-    public String showNewStoreForm(Model model){
+    public String showNewGoodForm(Model model){
         GoodDto goodDto = new GoodDto();
         model.addAttribute("good", goodDto);
         return "good/new_good";
     }
 
     @PostMapping("/saveGood")
-    public String addStore(@ModelAttribute("good") GoodDto goodDto){
+    public String addGood(@ModelAttribute("good") GoodDto goodDto){
         goodService.insert(goodDto);
         return "redirect:/good/home";
     }
@@ -42,7 +42,7 @@ public class GoodController {
     }
 
     @GetMapping("/deleteGood/{id}")
-    public String deleteStore(@PathVariable(value = "id") Long id){
+    public String deleteGood(@PathVariable(value = "id") Long id){
         goodService.delete(id);
         return "redirect:/good/home";
     }
